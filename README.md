@@ -1,13 +1,13 @@
-# Auth Rocks CIS API
+# DevLabs CIS API
 
-It is part of the Auth Rocks CIS developer workshop presented by [Okta](https://okta.com)
+This is part of DevLabs for CIS presented by [Okta](https://okta.com)
 
 ## Configuring the App
 
 ```json
 {
   "OKTA_ISSUER": "Enter CIS Authorization Server Issuer here",
-  "OKTA_CLIENTID": "Enter AuthRocks UI application Client ID here"
+  "OKTA_CLIENTID": "Enter CIS UI application Client ID here"
 }
 ```
 

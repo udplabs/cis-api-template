@@ -1,7 +1,7 @@
-const config = require('./config.js');
-const utils = require('./utils.js');
+import config from './config.js';
+import utils from './utils.js';
 
-module.exports = {
+const webHookHandlers = {
   tokenHandler: function (req, res) {
     console.log("webHookHandlers.tokenHandler()");
     let auth = req.get('Authorization');
@@ -46,4 +46,6 @@ module.exports = {
     res.setHeader('Content-Type', 'application/json');
     res.end(JSON.stringify(results));
   }
-}
+};
+
+export default webHookHandlers;

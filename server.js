@@ -1,20 +1,17 @@
-const express = require('express');
-const cors = require('cors');
-const OktaJwtVerifier = require('@okta/jwt-verifier');
+import * as dotenv from 'dotenv';
+import express from 'express';
+import cors from 'cors';
+import OktaJwtVerifier from '@okta/jwt-verifier';
+import config from './config.js';
+import endpointHandlers from './endpointHandlers.js'
+import webHookHandlers from './webHookHandlers.js'
 
-const config = require('./config.js');
-const endpointHandlers = require('./endpointHandlers.js');
-const webHookHandlers = require('./webHookHandlers.js');
+dotenv.config();
 
 const app = express();
 app.use(cors());
-const port = 3000;
-
-const oktaJwtVerifier = new OktaJwtVerifier({
-  issuer: config.OKTA_ISSUER,
-  clientId: config.OKTA_CLIENT_ID
-});
-
+const port = process.env.port || 3000;
+const oktaJwtVerifier = new OktaJwtVerifier({issuer: process.env.ISSUER});
 
 app.get('/', (req, res) => {
   res.send('This is the token hook API');
@@ -46,4 +43,4 @@ app.post('/api/access-hook', (req, res) => {
 });
 
 
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`))
+app.listen(port, () => console.log(`CIS API listening on port ${port}!`))

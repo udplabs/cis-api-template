@@ -1,11 +1,6 @@
-const config = require('./config.js');
+import config from './config.js';
 
-
-module.exports = {
-  
-  
-  
-  
+const endpointHandlers = {
   /**
    * This is public, anyone can call it
    */
@@ -164,4 +159,6 @@ module.exports = {
       res.end(JSON.stringify(results));
     });
   }
-}
+};
+
+export default endpointHandlers;
